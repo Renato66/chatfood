@@ -1,6 +1,7 @@
 <template>
   <div class="menu-wrapper">
     <BaseButton icon="mdiArrowLeft" @click="reset"/>
+    <h2>{{ $t('menu.search') }}</h2>
   </div>
 </template>
 
@@ -12,6 +13,11 @@ export default Vue.extend({
   name: 'Home',
   components: {
     BaseButton
+  },
+  methods: {
+    reset () {
+      console.log('reset')
+    }
   }
 })
 </script>
