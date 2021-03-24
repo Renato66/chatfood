@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@mdi/js": "^5.9.55",
+    "@sentry/tracing": "^6.2.3",
+    "@sentry/vue": "^6.2.3",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
