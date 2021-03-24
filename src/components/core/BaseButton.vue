@@ -1,0 +1,51 @@
+<template>
+  <button class="cf-button" :class="classes" @click="this.$emit('click')">
+    <BaseIcon v-if="icon" :icon="icon" />
+    <slot/>
+  </button>
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+  name: 'BaseButton',
+  components: {
+    BaseIcon: () => import(/* webpackChunkName: "icons" */ '@/components/core/BaseIcon.vue')
+  },
+  props: {
+    icon: {
+      type: String,
+      default: ''
+    }
+  },
+  computed: {
+    classes () {
+      return {
+        'cf-button--rounded': !!this.icon
+      }
+    }
+  }
+})
+</script>
+
+<style lang="scss">
+.cf-button {
+  border: 0;
+  padding: 10px;
+  line-height: 1px;
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover {
+    box-shadow: inset 0px 1px 3px #c7c7c7;
+  }
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    box-shadow: inset 0px 4px 7px #c7c7c7;
+  }
+  &--rounded {
+    border-radius: 100%;
+  }
+}
+</style>

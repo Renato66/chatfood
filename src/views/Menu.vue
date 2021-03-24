@@ -1,18 +1,23 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="menu-wrapper">
+    <BaseButton icon="mdiArrowLeft" @click="reset"/>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
+import BaseButton from '@/components/core/BaseButton.vue' // @ is an alias to /src
 
 export default Vue.extend({
   name: 'Home',
   components: {
-    HelloWorld
+    BaseButton
   }
 })
 </script>
+
+<style lang="scss">
+.menu-wrapper {
+  padding: 49px 15px;
+}
+</style>
