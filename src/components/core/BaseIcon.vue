@@ -1,5 +1,6 @@
 <template>
   <svg
+    v-if="loadedIcon"
     xmlns="http://www.w3.org/2000/svg"
     :width="size"
     :height="size"
@@ -40,7 +41,11 @@ export default Vue.extend({
   },
   async created () {
     if (this.icon) {
-      this.loadedIcon = await this.lazyIcon()
+      try {
+        this.loadedIcon = await this.lazyIcon()
+      } catch (error) {
+        console.warn('Icon failed to load', error)        
+      }
     }
   }
 })
