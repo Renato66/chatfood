@@ -14,14 +14,14 @@ describe('BaseButton.vue', () => {
 
   it('should warn when icon is not found', async () => {
     const icon = 'notFoundMdiIcon'
-    const spy = jest.spyOn(console, 'warn').mockImplementation();
+    const spy = jest.spyOn(console, 'warn').mockImplementation()
     const wrapper = shallowMount(BaseButton, {
       propsData: { icon }
     })
     await flushPromises()
     expect(console.warn).toHaveBeenCalledTimes(1)
-    expect(wrapper.text()).toBe(``)
-    spy.mockRestore();
+    expect(wrapper.text()).toBe('')
+    spy.mockRestore()
   })
 
   it('should emit click event', async () => {
@@ -35,6 +35,4 @@ describe('BaseButton.vue', () => {
     })
     expect(wrapper.emitted().click).toBeTruthy()
   })
-
- 
 })

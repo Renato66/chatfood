@@ -14,13 +14,13 @@ describe('BaseIcon.vue', () => {
 
   it('should warn when icon is not found', async () => {
     const icon = 'notFoundMdiIcon'
-    const spy = jest.spyOn(console, 'warn').mockImplementation();
+    const spy = jest.spyOn(console, 'warn').mockImplementation()
     const wrapper = shallowMount(BaseIcon, {
       propsData: { icon }
     })
     await flushPromises()
     expect(console.warn).toHaveBeenCalledTimes(1)
     expect(wrapper.html()).toBe('')
-    spy.mockRestore();
+    spy.mockRestore()
   })
 })

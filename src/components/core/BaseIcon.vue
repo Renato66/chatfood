@@ -44,7 +44,7 @@ export default Vue.extend({
       try {
         this.loadedIcon = await this.lazyIcon()
       } catch (error) {
-        console.warn('Icon failed to load', error)        
+        console.warn('Icon failed to load', error)
       }
     }
   }
