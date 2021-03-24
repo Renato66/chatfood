@@ -1,5 +1,5 @@
 <template>
-  <button class="cf-button" :class="classes" @click="this.$emit('click')">
+  <button class="cf-button" :class="classes" @click="$emit('click')">
     <BaseIcon v-if="icon" :icon="icon" />
     <slot/>
   </button>
