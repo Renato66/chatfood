@@ -1,0 +1,13 @@
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+[[headers]]
+  for = "/"
+  [headers.values]
+  cache-control = "public, max-age=0"
+[[plugins]]
+  package = "@sentry/netlify-build-plugin"
+  [plugins.inputs]
+    sentryOrg = "personal"
+    sentryProject = "chatfood"
