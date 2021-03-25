@@ -1,4 +1,4 @@
-import { ActionContext } from 'vuex'
+import { ActionContext, ActionTree } from 'vuex'
 import { Mutations, State } from './'
 
 export enum ActionTypes {
@@ -15,5 +15,7 @@ type AugmentedActionContext = {
 export interface Actions {
   [ActionTypes.GET_MENU](
     { commit }: AugmentedActionContext
-  ): Promise<void>
+  ): Promise<boolean | void>
 }
+
+export type ActionTreeMap = ActionTree<State, State> & Actions

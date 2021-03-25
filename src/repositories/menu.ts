@@ -4,12 +4,12 @@ import { AxiosResponse } from 'axios'
 import http from './clients/axios'
 const resource = '/menu'
 
-const load = async (): Promise<MenuResponse> => {
-  const { data: response } = await http.get(`${resource}`) as AxiosResponse<MenuResponse>
+export const load = async (): Promise<MenuResponse> => {
+  const { data: response } = await http.get(`${resource}/index.json`) as AxiosResponse<MenuResponse>
   return response
 }
 
-const search = async (input: string): Promise<MenuResponse> => {
+export const search = async (input: string): Promise<MenuResponse> => {
   // const { data: response } = await http.get(`${resource}/?q=${input}`) as AxiosResponse<MenuResponse>;
   const response = await load()
   const compareInput = compareStrings(input)
@@ -17,9 +17,4 @@ const search = async (input: string): Promise<MenuResponse> => {
     categories: response.categories,
     items: response.items.filter(elem => compareInput(`${elem.name} ${elem.description}`))
   } as MenuResponse
-}
-
-export default {
-  load,
-  search
 }

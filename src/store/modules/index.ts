@@ -9,17 +9,14 @@ const modules: Module = {}
 
 requireModule.keys().forEach(fileName => {
   if (fileName === './index.ts') return
-
   const path = fileName.replace(/(\.\/|\.ts)/g, '')
   const [moduleName, imported] = path.split('/')
+  if (imported !== 'index') return
 
-  if (!modules[moduleName]) {
-    modules[moduleName] = {
-      namespaced: true
-    }
+  modules[moduleName] = {
+    namespaced: true,
+    ...requireModule(fileName).default
   }
-
-  modules[moduleName][imported] = requireModule(fileName).default
 })
 
 export default modules
