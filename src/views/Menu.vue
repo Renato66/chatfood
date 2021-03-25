@@ -1,7 +1,7 @@
 <template>
   <div class="menu-wrapper">
     <header class="header">
-      <BaseButton icon="mdiArrowLeft" @click="reset"/>
+      <BaseButton class="header__back-button" icon="mdiArrowLeft" @click="RESET"/>
       <h2 class="header__title">{{ $t('menu.search') }}</h2>
       <input type="text" />
     </header>
@@ -17,7 +17,7 @@
     </section>
     <section v-else>
       <div v-for="(item, index) in itemsList" :key="index">
-        {{item}}
+        <ItemCard :item="item" :selected="cartItemsListQuantity" @click="ADD_TO_CART"/>
       </div>
     </section>
   </div>
@@ -32,7 +32,8 @@ import { ActionTypes } from '@/store/modules/menu/types/actions'
 export default Vue.extend({
   name: 'Home',
   components: {
-    BaseButton
+    BaseButton,
+    ItemCard: () => import('@/components/ItemCard.vue')
   },
   data () {
     return {
@@ -40,11 +41,12 @@ export default Vue.extend({
     }
   },
   computed: {
-    ...mapGetters('menu', ['loading', 'itemsList'])
+    ...mapGetters('menu', ['loading', 'itemsList']),
+    ...mapGetters('cart', ['cartItemsListQuantity'])
   },
   methods: {
     ...mapActions('menu', ['GET_MENU'] as ActionTypes[]),
-    ...mapActions('cart', ['reset'])
+    ...mapActions('cart', ['ADD_TO_CART', 'RESET'])
   },
   async mounted () {
     this.error = !!await this.GET_MENU()
@@ -58,6 +60,9 @@ export default Vue.extend({
 }
 
 .header {
+  &__back-button {
+    margin-left: -14px;
+  }
   &__title {
     color: $black-titles
   }
