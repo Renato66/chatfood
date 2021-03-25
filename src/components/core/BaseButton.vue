@@ -30,6 +30,7 @@ export default Vue.extend({
 
 <style lang="scss">
 .cf-button {
+  background: transparent;
   border: 0;
   padding: 10px;
   line-height: 1px;
