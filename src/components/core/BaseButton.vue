@@ -35,6 +35,13 @@ export default Vue.extend({
   padding: 10px;
   line-height: 1px;
   transition: 0.3s;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: pointer;
   &:hover {
     box-shadow: inset 0px 1px 3px #c7c7c7;
