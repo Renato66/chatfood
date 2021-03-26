@@ -9,5 +9,5 @@
 [[plugins]]
   package = "@sentry/netlify-build-plugin"
   [plugins.inputs]
-    sentryOrg = "personal"
+    sentryOrg = "github-projects"
     sentryProject = "chatfood"
