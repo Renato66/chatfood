@@ -23,4 +23,13 @@ describe('BaseIcon.vue', () => {
     expect(wrapper.html()).toBe('')
     spy.mockRestore()
   })
+
+  it('renders no icon', async () => {
+    const icon = ''
+    const wrapper = shallowMount(BaseIcon, {
+      propsData: { icon }
+    })
+    await flushPromises()
+    expect(wrapper.html()).toBe('')
+  })
 })
