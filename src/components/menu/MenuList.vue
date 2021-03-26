@@ -1,5 +1,5 @@
 <template>
-  <section class="cf-menu-list" aria-busy="false">
+  <section class="cf-menu-list" aria-busy="false" data-cy="menu-list">
     <div
       v-for="category in categoriesItemsList"
       :key="category.id"

@@ -1,9 +1,9 @@
 <template>
   <div class="cf-menu-view">
     <header class="cf-header">
-      <BaseButton class="cf-header__back-button" icon="mdiArrowLeft" @click="RESET_CART"/>
-      <h2 class="cf-header__title">{{ $t('menu.search') }}</h2>
-      <input type="text" v-model="search" />
+      <BaseButton class="cf-header__back-button" icon="mdiArrowLeft" @click="RESET_CART" data-cy="reset"/>
+      <h2 class="cf-header__title" data-cy="title">{{ $t('menu.search') }}</h2>
+      <input type="text" v-model="search" data-cy="search" />
     </header>
     <transition name="component-fade" mode="out-in">
       <component v-bind:is="view"></component>

@@ -1,5 +1,5 @@
 <template>
-  <div class="cf-card" :class="{'--selected': selected[item.id]}" @click="$emit('click', item)">
+  <div class="cf-card" :class="{'--selected': selected[item.id]}" @click="$emit('click', item)" :data-cy="`item-card-${item.id}`">
     <div class="cf-card__text">
       <h4 class="cf-card__title"><span v-if="selected[item.id]">{{ selected[item.id] }} x </span>{{ item.name }}</h4>
       <div class="cf-card__description">
