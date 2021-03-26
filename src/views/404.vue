@@ -1,6 +1,19 @@
 <template>
-  <div class="about">
-    <h1>Ops... 404.. Page not found!</h1>
-    <h2>Return to <router-link to="/">Menu</router-link></h2>
-  </div>
+  <BaseError />
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+  name: 'PageNotFound',
+  components: {
+    BaseError: () => import('@/components/core/BaseError.vue')
+  }
+})
+</script>
+
+<style lang="scss">
+.cf-error {
+  padding-top: 100px;
+}
+</style>
