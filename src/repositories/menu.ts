@@ -1,4 +1,4 @@
-import { compareStrings } from '@/helpers/utils/compareStrings'
+import { compareStrings } from '@/helpers/utils'
 import { MenuResponse } from '@/types/menu'
 import { AxiosResponse } from 'axios'
 import http from './clients/axios'
