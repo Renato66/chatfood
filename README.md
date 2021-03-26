@@ -1,4 +1,4 @@
-# chatfood
+# WORK IN PROGRESS - chatfood
 
 Project for the front end role at [https://chatfood.io](https://chatfood.io)
 
