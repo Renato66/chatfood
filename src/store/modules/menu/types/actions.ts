@@ -3,6 +3,7 @@ import { Mutations, State } from './'
 
 export enum ActionTypes {
   GET_MENU = 'GET_MENU',
+  SEARCH_MENU = 'SEARCH_MENU'
 }
 
 type AugmentedActionContext = {
@@ -15,6 +16,10 @@ type AugmentedActionContext = {
 export interface Actions {
   [ActionTypes.GET_MENU](
     { commit }: AugmentedActionContext
+  ): Promise<boolean | void>
+  [ActionTypes.SEARCH_MENU](
+    { commit }: AugmentedActionContext,
+    payload: string
   ): Promise<boolean | void>
 }
 
