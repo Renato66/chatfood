@@ -1,6 +1,7 @@
 {
   "menu": {
-    "search": "Search"
+    "search": "Search",
+    "inputPlaceholder": "Search for dishes"
   },
   "cart": {
     "itemNotAvaliable": "Sorry, no more left on stock"

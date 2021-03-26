@@ -3,7 +3,7 @@
     <header class="cf-header">
       <BaseButton class="cf-header__back-button" icon="mdiArrowLeft" @click="RESET_CART" data-cy="reset"/>
       <h2 class="cf-header__title" data-cy="title">{{ $t('menu.search') }}</h2>
-      <input type="text" v-model="search" data-cy="search" />
+      <BaseInput v-model="search" data-cy="search" icon="mdiMagnify" :placeholder="$t('menu.inputPlaceholder')" />
     </header>
     <transition name="component-fade" mode="out-in">
       <component v-bind:is="view"></component>
@@ -23,6 +23,7 @@ export default Vue.extend({
   name: 'Home',
   components: {
     BaseButton,
+    BaseInput: () => import('@/components/core/BaseInput.vue'),
     BaseLoading: () => import('@/components/core/BaseLoading.vue'),
     BaseError: () => import('@/components/core/BaseError.vue'),
     EmptyList: () => import('@/components/menu/EmptyList.vue'),

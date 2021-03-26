@@ -1,7 +1,7 @@
 export const visit = () => cy.visit('/')
 export const title = () => cy.get('[data-cy=title]')
 export const resetButton = () => cy.get('[data-cy=reset]')
-export const searchInput = () => cy.get('[data-cy=search]')
+export const searchInput = () => cy.get('[data-cy=search] input')
 export const list = () => cy.get('[data-cy=menu-list]')
 export const emptyList = () => cy.get('[data-cy=empty-list]')
 export const error = () => cy.get('[data-cy=error]')

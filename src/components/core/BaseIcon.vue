@@ -5,6 +5,7 @@
     :width="size"
     :height="size"
     :viewBox="`0 0 ${size} ${size}`"
+    @click="$emit('click')"
   >
     <path :d="loadedIcon" />
   </svg>
