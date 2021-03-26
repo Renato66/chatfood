@@ -1,4 +1,4 @@
-export type MenuCategorie = {
+export type MenuCategory = {
   id: string,
   name: string,
   url: string
@@ -19,6 +19,6 @@ export type MenuItem = {
 }
 
 export type MenuResponse = {
-  categories: MenuCategorie[],
+  categories: MenuCategory[],
   items: MenuItem[]
 }

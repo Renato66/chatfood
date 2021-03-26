@@ -1,5 +1,6 @@
-import { MenuCategorie, MenuItem } from '@/types/menu'
+import { MenuCategory, MenuItem } from '@/types/menu'
 
 export const state = {
-  items: [] as MenuItem[]
+  items: [] as MenuItem[],
+  categories: [] as MenuCategory[]
 }
