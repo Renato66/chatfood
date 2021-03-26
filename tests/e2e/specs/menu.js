@@ -49,11 +49,12 @@ describe('Testing menu', () => {
       menu.getMenu()
       cy.wait('@getMenu')
 
-      const cheeseBurguer = menu.item(2)
+      let cheeseBurguer = menu.item(2)
       cheeseBurguer.click()
       menu.visit()
       cy.wait('@getMenu')
-
+      // retrive object again
+      cheeseBurguer = menu.item(2)
       cheeseBurguer.should('have.class', '--selected')
     })
   })
