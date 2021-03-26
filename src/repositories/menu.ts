@@ -11,11 +11,13 @@ export const load = async (): Promise<MenuResponse> => {
 }
 
 export const search = async (input: string): Promise<MenuResponse> => {
-  // const { data: response } = await http.get(`${resource}/?q=${input}`) as AxiosResponse<MenuResponse>;
-  const response = await load()
+  const apiResponse = await load()
   const compareInput = compareStrings(input)
-  return {
-    categories: response.categories,
-    items: response.items.filter(elem => compareInput(`${elem.name} ${elem.description}`))
+  const items = apiResponse.items.filter(item => compareInput(`${item.name} ${item.description}`))
+  const response = {
+    categories: apiResponse.categories.filter(category => items.some(item => category.id === item.category_id)),
+    items
   } as MenuResponse
+  // const { data: response } = await http.get(`${resource}/?q=${input}`) as AxiosResponse<MenuResponse>;
+  return response
 }

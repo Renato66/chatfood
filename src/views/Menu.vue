@@ -76,6 +76,11 @@ export default Vue.extend({
     margin-left: -14px;
   }
   &__title {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 35px;
+    letter-spacing: -0.01em;
+    text-align: left;
     color: $black-titles
   }
 }

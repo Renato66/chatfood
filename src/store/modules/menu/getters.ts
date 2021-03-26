@@ -7,5 +7,13 @@ export const getters: GetterTree<State, State> & Getters = {
   },
   itemsList: (state) => {
     return state.items
+  },
+  categoriesItemsList: (state) => {
+    return state.categories.map(category => {
+      return {
+        ...category,
+        items: state.items.filter(item => item.category_id === category.id)
+      }
+    })
   }
 }

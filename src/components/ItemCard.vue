@@ -61,6 +61,7 @@ export default Vue.extend({
 .cf-card {
   position: relative;
   display: flex;
+  min-height: 91px;
   margin-bottom: 28px;
   &::after {
     content: ' ';
@@ -68,12 +69,20 @@ export default Vue.extend({
     position: absolute;
     background: $primary;
     height: 100%;
-    left: -23px;
+    left: -30px;
     width: 0px;
     transition: width 0.3s;
   }
   &.--selected::after {
-    width: 7px;
+    width: 14px;
+  }
+  @media only screen and (min-width: 1200px) {
+    &::after {
+      left: -23px;
+    }
+    &.--selected::after {
+      width: 7px;
+    }
   }
   &__text {
     flex-basis: 0%;
