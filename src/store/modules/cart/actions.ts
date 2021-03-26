@@ -1,3 +1,5 @@
+import { i18n } from '@/plugins/i18n'
+import Vue from 'vue'
 import { ActionTreeMap, ActionTypes, MutationTypes } from './types'
 
 export const actions:ActionTreeMap = {
@@ -19,7 +21,10 @@ export const actions:ActionTreeMap = {
     try {
       // const isAvaliable = await checkAvailability(payload.id)
       const isAvaliable = payload.stock.availability >= (getters.cartItemsListQuantity[payload.id] || 0) + 1
-      // if (!isAvaliable) googleAnalitic('NOT_AVALIABLE')
+      if (!isAvaliable) {
+        // googleAnalitic('NOT_AVALIABLE')
+        Vue.$toast.info(i18n.t('cart.itemNotAvaliable') as string)
+      }
       return isAvaliable
     } catch (error) {
       console.log(error)

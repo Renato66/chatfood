@@ -1,5 +1,8 @@
 {
   "menu": {
     "search": "Search"
+  },
+  "cart": {
+    "itemNotAvaliable": "Sorry, no more left on stock"
   }
 }
