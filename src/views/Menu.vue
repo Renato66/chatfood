@@ -1,7 +1,7 @@
 <template>
   <div class="cf-menu-view">
     <header class="cf-header">
-      <BaseButton class="cf-header__back-button" icon="mdiArrowLeft" @click="RESET"/>
+      <BaseButton class="cf-header__back-button" icon="mdiArrowLeft" @click="RESET_CART"/>
       <h2 class="cf-header__title">{{ $t('menu.search') }}</h2>
       <input type="text" v-model="search" />
     </header>
@@ -15,7 +15,8 @@
 import Vue from 'vue'
 import BaseButton from '@/components/core/BaseButton.vue'
 import { mapActions, mapGetters } from 'vuex'
-import { ActionTypes } from '@/store/modules/menu/types/actions'
+import { ActionTypes as MenuActionTypes } from '@/store/modules/menu/types/actions'
+import { ActionTypes as CartActionTypes } from '@/store/modules/cart/types/actions'
 import { debounce } from '@/helpers/utils'
 
 export default Vue.extend({
@@ -43,8 +44,8 @@ export default Vue.extend({
     }
   },
   methods: {
-    ...mapActions('menu', ['GET_MENU', 'SEARCH_MENU'] as ActionTypes[]),
-    ...mapActions('cart', ['ADD_TO_CART', 'RESET'])
+    ...mapActions('menu', ['GET_MENU', 'SEARCH_MENU'] as MenuActionTypes[]),
+    ...mapActions('cart', ['RESET_CART', 'RETRIVE_CART'] as CartActionTypes[])
   },
   watch: {
     // eslint-disable-next-line
@@ -53,6 +54,7 @@ export default Vue.extend({
     }, 300)
   },
   async mounted () {
+    this.RETRIVE_CART()
     this.error = !!await this.GET_MENU()
   }
 })

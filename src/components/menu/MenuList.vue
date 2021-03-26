@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default Vue.extend({
   components: {
     ItemCard: () => import('@/components/ItemCard.vue')
@@ -20,6 +20,9 @@ export default Vue.extend({
   computed: {
     ...mapGetters('menu', ['itemsList']),
     ...mapGetters('cart', ['cartItemsListQuantity'])
+  },
+  methods: {
+    ...mapActions('cart', ['ADD_TO_CART'])
   }
 })
 </script>

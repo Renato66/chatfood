@@ -4,6 +4,8 @@ import { Mutations, State } from './'
 
 export enum ActionTypes {
   ADD_TO_CART = 'ADD_TO_CART',
+  RETRIVE_CART = 'RETRIVE_CART',
+  RESET_CART = 'RESET_CART'
 }
 
 type AugmentedActionContext = {
@@ -16,7 +18,13 @@ type AugmentedActionContext = {
 export interface Actions {
   [ActionTypes.ADD_TO_CART](
     { commit }: AugmentedActionContext, item: MenuItem
-  ): Promise<boolean | void>
+  ): void,
+  [ActionTypes.RETRIVE_CART](
+    { commit }: AugmentedActionContext
+  ): void,
+  [ActionTypes.RESET_CART](
+    { commit }: AugmentedActionContext
+  ): void
 }
 
 export type ActionTreeMap = ActionTree<State, State> & Actions
