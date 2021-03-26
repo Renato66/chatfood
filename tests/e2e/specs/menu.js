@@ -6,7 +6,7 @@ describe('Testing menu', () => {
       menu.visit()
       menu.title().contains('Search')
     })
-  
+
     it('Load items', () => {
       cy.server()
       menu.visit()
@@ -29,19 +29,18 @@ describe('Testing menu', () => {
       menu.visit()
       menu.getMenu()
       cy.wait('@getMenu')
-  
+
       const cheeseBurguer = menu.item(2)
       cheeseBurguer.click()
       cheeseBurguer.should('have.class', '--selected')
       cheeseBurguer.contains('1 x')
       cheeseBurguer.click()
       cheeseBurguer.contains('1 x')
-  
+
       const avoBurger = menu.item(3)
       avoBurger.click()
       avoBurger.click()
       cheeseBurguer.contains('2 x')
-      
     })
 
     it('Should persist the item in cart', () => {
@@ -49,7 +48,7 @@ describe('Testing menu', () => {
       menu.visit()
       menu.getMenu()
       cy.wait('@getMenu')
-  
+
       const cheeseBurguer = menu.item(2)
       cheeseBurguer.click()
       menu.visit()
@@ -58,7 +57,7 @@ describe('Testing menu', () => {
       cheeseBurguer.should('have.class', '--selected')
     })
   })
-  
+
   describe('Search', () => {
     it('Should find cheese burguer', () => {
       cy.server()
@@ -69,7 +68,7 @@ describe('Testing menu', () => {
       cy.wait('@getMenu')
       menu.item(2).contains('Cheese Burger')
     })
-  
+
     it('Should not find item', () => {
       cy.server()
       menu.visit()
@@ -79,6 +78,5 @@ describe('Testing menu', () => {
       cy.wait('@getMenu')
       menu.emptyList().should('exist')
     })
-
   })
 })
