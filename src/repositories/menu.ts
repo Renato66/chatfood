@@ -5,6 +5,7 @@ import http from './clients/axios'
 const resource = '/menu'
 
 export const load = async (): Promise<MenuResponse> => {
+  await new Promise(resolve => setTimeout(resolve, 1000))
   const { data: response } = await http.get(`${resource}/index.json`) as AxiosResponse<MenuResponse>
   return response
 }
