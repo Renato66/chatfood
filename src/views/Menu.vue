@@ -60,6 +60,8 @@ export default Vue.extend({
 
 <style lang="scss">
 .cf-menu-view {
+  max-width: 1200px;
+  margin: auto;
   padding: 49px 15px;
   .cf-error,
   .cf-loading {
