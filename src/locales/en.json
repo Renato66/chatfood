@@ -4,5 +4,10 @@
   },
   "cart": {
     "itemNotAvaliable": "Sorry, no more left on stock"
+  },
+  "error": {
+    "title": "Ops...",
+    "retry": "Try again",
+    "emptyList": "No items found ;("
   }
 }

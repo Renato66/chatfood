@@ -1,5 +1,5 @@
 <template>
   <div style="text-align:center">
-    No items found ;(
+    {{ $t('error.emptyList') }}
   </div>
 </template>
