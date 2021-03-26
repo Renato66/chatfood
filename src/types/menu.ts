@@ -12,7 +12,7 @@ export type MenuItem = {
   'discount_rate': number,
   stock: {
     availability: number,
-  },
+  } | null,
   description: string,
   photo: string,
   'category_id': string

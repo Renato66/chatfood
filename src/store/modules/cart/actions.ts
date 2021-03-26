@@ -20,7 +20,7 @@ export const actions:ActionTreeMap = {
   async [ActionTypes.CHECK_AVAILABILITY] ({ getters }, payload) {
     try {
       // const isAvaliable = await checkAvailability(payload.id)
-      const isAvaliable = payload.stock.availability >= (getters.cartItemsListQuantity[payload.id] || 0) + 1
+      const isAvaliable = payload.stock ? payload.stock.availability >= (getters.cartItemsListQuantity[payload.id] || 0) + 1 : false
       if (!isAvaliable) {
         // googleAnalitic('NOT_AVALIABLE')
         Vue.$toast.info(i18n.t('cart.itemNotAvaliable') as string)
