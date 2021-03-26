@@ -1,25 +1,13 @@
 <template>
-  <div class="menu-wrapper">
-    <header class="header">
-      <BaseButton class="header__back-button" icon="mdiArrowLeft" @click="RESET"/>
-      <h2 class="header__title">{{ $t('menu.search') }}</h2>
-      <input type="text" />
+  <div class="cf-menu-view">
+    <header class="cf-header">
+      <BaseButton class="cf-header__back-button" icon="mdiArrowLeft" @click="RESET"/>
+      <h2 class="cf-header__title">{{ $t('menu.search') }}</h2>
+      <input type="text" v-model="search" />
     </header>
-    <section v-if="loading">
-      <div>
-        Loading...
-      </div>
-    </section>
-    <section v-else-if="error">
-      <div>
-        Loading...
-      </div>
-    </section>
-    <section v-else>
-      <div v-for="(item, index) in itemsList" :key="index">
-        <ItemCard :item="item" :selected="cartItemsListQuantity" @click="ADD_TO_CART"/>
-      </div>
-    </section>
+    <transition name="component-fade" mode="out-in">
+      <component v-bind:is="view"></component>
+    </transition>
   </div>
 </template>
 
@@ -28,25 +16,41 @@ import Vue from 'vue'
 import BaseButton from '@/components/core/BaseButton.vue'
 import { mapActions, mapGetters } from 'vuex'
 import { ActionTypes } from '@/store/modules/menu/types/actions'
+import { debounce } from '@/helpers/utils'
 
 export default Vue.extend({
   name: 'Home',
   components: {
     BaseButton,
-    ItemCard: () => import('@/components/ItemCard.vue')
+    BaseLoading: () => import('@/components/core/BaseLoading.vue'),
+    BaseError: () => import('@/components/core/BaseError.vue'),
+    EmptyList: () => import('@/components/menu/EmptyList.vue'),
+    MenuList: () => import('@/components/menu/MenuList.vue')
   },
   data () {
     return {
+      search: '',
       error: false
     }
   },
   computed: {
     ...mapGetters('menu', ['loading', 'itemsList']),
-    ...mapGetters('cart', ['cartItemsListQuantity'])
+    view () {
+      if (this.loading) return 'BaseLoading'
+      if (this.error) return 'BaseError'
+      if (this.itemsList.length === 0) return 'EmptyList'
+      return 'MenuList'
+    }
   },
   methods: {
-    ...mapActions('menu', ['GET_MENU'] as ActionTypes[]),
+    ...mapActions('menu', ['GET_MENU', 'SEARCH_MENU'] as ActionTypes[]),
     ...mapActions('cart', ['ADD_TO_CART', 'RESET'])
+  },
+  watch: {
+    // eslint-disable-next-line
+    search: debounce(function (this: any, newVal: string) {
+      this.SEARCH_MENU(newVal)
+    }, 300)
   },
   async mounted () {
     this.error = !!await this.GET_MENU()
@@ -55,11 +59,15 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-.menu-wrapper {
+.cf-menu-view {
   padding: 49px 15px;
+  .cf-error,
+  .cf-loading {
+    padding-top: 100px;
+  }
 }
 
-.header {
+.cf-header {
   &__back-button {
     margin-left: -14px;
   }
