@@ -1,21 +1,23 @@
-# chatfood - [open app](https://chatfood-test-front.netlify.app)
+# Chatfood - [Open](https://chatfood-test-front.netlify.app)
 
-[![Build test](https://github.com/Renato66/chatfood/actions/workflows/build-test.yml/badge.svg)](https://github.com/Renato66/chatfood/actions/workflows/build-test.yml)
+[![Build test](https://github.com/Renato66/chatfood/actions/workflows/build-test.yml/badge.svg)](https://github.com/Renato66/chatfood/actions/workflows/build-test.yml)  [![E2E test](https://github.com/Renato66/chatfood/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/Renato66/chatfood/actions/workflows/e2e-test.yml)   [![Unit test](https://github.com/Renato66/chatfood/actions/workflows/unit-test.yml/badge.svg)](https://github.com/Renato66/chatfood/actions/workflows/unit-test.yml)
+
 Project for the front end role at [https://chatfood.io](https://chatfood.io)
-
-[![E2E test](https://github.com/Renato66/chatfood/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/Renato66/chatfood/actions/workflows/e2e-test.yml)
-
-[![Unit test](https://github.com/Renato66/chatfood/actions/workflows/unit-test.yml/badge.svg)](https://github.com/Renato66/chatfood/actions/workflows/unit-test.yml)
+#### for the javascript:
+[vue.js v2](https://vuejs.org/v2/guide/) as my main stack and some extra packages: [typescript](https://www.typescriptlang.org), [axios](https://github.com/axios/axios), [vue-i18n](https://kazupon.github.io/vue-i18n/),[vue-router](https://router.vuejs.org), [vuex](https://vuex.vuejs.org), [vue-toast-notification](https://github.com/ankurk91/vue-toast-notification)
 
 #### for the hosting:
 The app is hosted on netlify: [https://chatfood-test-front.netlify.app](https://chatfood-test-front.netlify.app)
-#### for the css I use prefixed BEm
+#### for the css:
+[SASS](https://sass-lang.com/documentation/syntax) with Prefixed BEm
+```
 prefix "cf-"
 Block "menu"
 Element "title"
 modifier "highligth"
-
 `<header class="cf-menu"><h1 class="cf-menu__title --highligth">My title</h1></header>`
+```
+
 #### for error tracking:
 [sentry.io](https://sentry.io)
 #### for testing e2e:
