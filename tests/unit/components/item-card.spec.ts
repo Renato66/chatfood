@@ -30,8 +30,8 @@ describe('ItemCard.vue', () => {
     })
     expect(wrapper.get('.cf-card__title').text()).toBe('Cheese Burger')
     expect(wrapper.get('.cf-card__description').text()).toBe('Very nice cheese burger.')
-    expect(wrapper.get('.cf-card__price div:first-child').text()).toBe('AED\u00a01.200,00')
-    expect(wrapper.get('.cf-card__price div:last-child').text()).toBe('AED\u00a01.500,00')
+    expect(wrapper.get('.cf-card__price div:first-child').text()).toBe('AED\u00a01,200.00')
+    expect(wrapper.get('.cf-card__price div:last-child').text()).toBe('AED\u00a01,500.00')
     expect(wrapper.find('.cf-card__image img').exists()).toBe(true)
   })
 
