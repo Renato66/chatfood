@@ -1,8 +1,29 @@
-# WORK IN PROGRESS - chatfood
+# chatfood - [open app](https://chatfood-test-front.netlify.app)
 
+[![Build test](https://github.com/Renato66/chatfood/actions/workflows/build-test.yml/badge.svg)](https://github.com/Renato66/chatfood/actions/workflows/build-test.yml)
 Project for the front end role at [https://chatfood.io](https://chatfood.io)
 
+[![E2E test](https://github.com/Renato66/chatfood/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/Renato66/chatfood/actions/workflows/e2e-test.yml)
+
+[![Unit test](https://github.com/Renato66/chatfood/actions/workflows/unit-test.yml/badge.svg)](https://github.com/Renato66/chatfood/actions/workflows/unit-test.yml)
+
+#### for the hosting:
 The app is hosted on netlify: [https://chatfood-test-front.netlify.app](https://chatfood-test-front.netlify.app)
+#### for the css I use prefixed BEm
+prefix "cf-"
+Block "menu"
+Element "title"
+modifier "highligth"
+
+`<header class="cf-menu"><h1 class="cf-menu__title --highligth">My title</h1></header>`
+#### for error tracking:
+[sentry.io](https://sentry.io)
+#### for testing e2e:
+[cypress.io](https://cypress.io) and its plataform to register the tests
+#### for testing unit:
+[jest.io](https://jest.io)
+#### for CI:
+[github actions](https://github.com/Renato66/chatfood/actions)
 
 <details>
  <summary>The test requirement can be seen here</summary>
