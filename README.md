@@ -19,11 +19,11 @@ modifier "highligth"
 ```
 
 #### for error tracking:
-[sentry.io](https://sentry.io)
+[sentry](https://sentry.io)
 #### for testing e2e:
-[cypress.io](https://cypress.io) and its plataform to register the tests
+[cypress](https://cypress.io) and its plataform to register the tests - [check it out](dashboard.cypress.io/projects/fg718b/runs)
 #### for testing unit:
-[jest.io](https://jest.io)
+[jest](https://jest.io) and [codecov](https://about.codecov.io) plataform to register the tests - [check it out](https://app.codecov.io/gh/Renato66/chatfood)
 #### for CI:
 [github actions](https://github.com/Renato66/chatfood/actions)
 
