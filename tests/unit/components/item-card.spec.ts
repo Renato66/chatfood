@@ -18,7 +18,7 @@ const cheeseBurguer = {
 
 const mocks = {
   $i18n: {
-    locale: () => { return process.env.VUE_APP_I18N_LOCALE || 'en' }
+    locale: process.env.VUE_APP_I18N_LOCALE || 'en'
   }
 }
 
@@ -30,6 +30,7 @@ describe('ItemCard.vue', () => {
     })
     expect(wrapper.get('.cf-card__title').text()).toBe('Cheese Burger')
     expect(wrapper.get('.cf-card__description').text()).toBe('Very nice cheese burger.')
+    console.log(new Intl.NumberFormat(mocks.$i18n.locale, { style: 'currency', currency: 'AED' }).format(1200))
     expect(wrapper.get('.cf-card__price div:first-child').text()).toBe('AED\u00a01,200.00')
     expect(wrapper.get('.cf-card__price div:last-child').text()).toBe('AED\u00a01,500.00')
     expect(wrapper.find('.cf-card__image img').exists()).toBe(true)
