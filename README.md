@@ -102,6 +102,7 @@ yarn test:unit
 ```
 yarn test:e2e
 ```
+> add a flag --headless to run faster
 
 ### Lints and fixes files
 
