@@ -27,8 +27,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           runTests: false
-      # report machine parameters
-      - run: yarn cypress info
+      # report machine parameter
       - run: node -p 'os.cpus()'
 
   ui-chrome-tests:
