@@ -74,6 +74,7 @@ jobs:
         env:
           CYPRESS_PROJECT_ID: fg718b
           CYPRESS_RECORD_KEY: a533c271-ab1c-41a0-8b16-421095796d9d
+          CYPRESS_BASE_URL: "http://localhost:8080/"
           # Recommended: pass the GitHub token lets this action correctly
           # determine the unique run id necessary to re-run the checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
