@@ -70,7 +70,7 @@ jobs:
           record: true
           parallel: true
           group: "UI - Chrome"
-          spec: cypress/tests/ui/*
+          spec: tests/e2e/specs/*
         env:
           CYPRESS_PROJECT_ID: fg718b
           CYPRESS_RECORD_KEY: a533c271-ab1c-41a0-8b16-421095796d9d
